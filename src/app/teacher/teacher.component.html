@@ -1,0 +1,58 @@
+<div class="background">
+  <div class="card bg-dark">
+    <div class="card-body">
+      <div class="container mt-3">
+        <div>
+          <h2 class="font-effect-fire">
+            MARY MATHA ARTS AND SCIENCE COLLEGE MANATHAVADY
+          </h2>
+        </div>
+        <div>
+          <h3>Upload Questions</h3>
+        </div>
+
+        <form [formGroup]="question_form">
+          <div class="row bg-light p-5">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 ">
+              <mat-form-field appearance="outline">
+                <mat-label>Select Department</mat-label>
+                <mat-select formControlName="dep_id" placeholder="" (selectionChange)="getCourses($event.value)">
+                  <mat-option *ngFor="let dept of departments" [value]="dept?.dep_id"> {{ dept?.dep_name }} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Select Semester</mat-label>
+                <mat-select formControlName="semester" placeholder="">
+                  <mat-option [value]="1" class="text-dark">1</mat-option>
+                      <mat-option [value]="2" class="text-dark">2</mat-option>
+                      <mat-option [value]="3" class="text-dark">3</mat-option>
+                        <mat-option [value]="4" class="text-dark">4</mat-option>
+                        <mat-option [value]="5" class="text-dark">5</mat-option>
+                        <mat-option [value]="6" class="text-dark">6</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Select Course</mat-label>
+                <mat-select formControlName="course_id" placeholder="">
+                  <mat-option *ngFor="let course of courses" [value]="course?.id" class="text-dark" >{{ course?.course_name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <input type="file" (change)="uploadFile($event)" style=" margin-left: 292px"><br>
+            
+            <div class="d-grid">
+              <button (click)="uploadQuestion()" type="button" class="btn btn-primary btn-block submit">
+                Upload
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="background">
+    <div class="card">
+        <div class="card-body">
+            <div class="container mt-3">
+                <div>
+                    <h2 class="font-effect-fire">MARY MATHA ARTS AND SCIENCE COLLEGE MANATHAVADY</h2>
+                </div>
+                <div>
+                    <h3>QuestionBank Accept or reject</h3>
+                </div>
+
+                <div>
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-sm-9 col-md-10 col-lg-9 col-xl-9" *ngIf="questions?.length == 0">
+                            <h4 class="text-center text-danger">
+                                No Records Found
+                            </h4>
+                        </div>
+                        <div class="col-9 col-sm-9 col-md-10 col-lg-9 col-xl-9">
+                            <ul>
+                                <li *ngFor="let file of questions">
+                                    <div>
+                                        <div mat-line>{{ file.course_name }} (Semester: {{ file.semester }})</div>
+                                        <div mat-line> {{ file?.dep_name }} </div>
+                                    </div>
+                                    <div>
+                                        <a [href]="file?.question_url" target="_blank" rel="noopener noreferrer">
+                                            <mat-icon>visibility</mat-icon>
+                                        </a>
+                                        <button mat-icon-button class="text-success text-right"
+                                            (click)="onChangeStatus(2, file)">
+                                            <mat-icon class="mat-18">check_circle</mat-icon>
+                                        </button>
+                                        <button mat-icon-button color="warn" clas (click)="onChangeStatus(0, file)">
+                                            <mat-icon class="mat-18">cancel</mat-icon>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

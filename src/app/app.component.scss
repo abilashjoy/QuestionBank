@@ -1,0 +1,56 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+.background {
+  background: #fff;
+  height: 100vh;
+  display: flex;
+}
+h2 {
+  color: #0f0c0c;
+
+  text-align: center;
+  margin-left: 7px;
+  margin-top: 42px;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  text-shadow: none;
+  font-weight: 600;
+}
+h3 {
+  font-family: "Poppins";
+  color: #464646;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  margin-left: 366px;
+  font-weight: 400;
+}
+.card {
+  height: 500px;
+  width: 1000px;
+  margin-top: 134px;
+  margin-left: 275px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  border: none;
+  border-radius: 15px;
+}
+select {
+  width: 360px;
+  margin: 18px;
+  margin-left: 47px;
+  background-color: #09140a;
+  border: none;
+  border-radius: 15px;
+  :hover{
+    background-color: #4481;
+  }
+}
+.submit {
+  width: 586px;
+  margin-left: 164px;
+  height: 45px;
+  font-weight: bold;
+  border-radius: 15px;
+}

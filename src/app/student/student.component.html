@@ -1,0 +1,80 @@
+<link rel="stylesheet"
+  href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="background">
+  <div class="card">
+    <div class="card-body">
+      <div class="container mt-3">
+        <div>
+          <h2 class="font-effect-fire">
+            MARY MATHA ARTS AND SCIENCE COLLEGE MANATHAVADY
+          </h2>
+        </div>
+        <div>
+          <h3>Question Bank</h3>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Department</mat-label>
+              <mat-select [(value)]="dep_id" placeholder="" (selectionChange)="getCourses($event.value)">
+                <mat-option *ngFor="let dept of departments" [value]="dept?.dep_id"> {{ dept?.dep_name }} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Course</mat-label>
+              <mat-select [(value)]="course_id" placeholder="">
+                <mat-option *ngFor="let course of courses" [value]="course?.id" class="text-dark">{{ course?.course_name
+                  }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Semester</mat-label>
+              <mat-select [(value)]="semester" placeholder="">
+                <mat-option [value]="1" class="text-dark">1</mat-option>
+                <mat-option [value]="2" class="text-dark">2</mat-option>
+                <mat-option [value]="3" class="text-dark">3</mat-option>
+                <mat-option [value]="4" class="text-dark">4</mat-option>
+                <mat-option [value]="5" class="text-dark">5</mat-option>
+                <mat-option [value]="6" class="text-dark">6</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+            <button (click)="getQuestions()" type="button" class="btn btn-primary btn-block submit">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-3">
+          <div class="col-9 col-sm-9 col-md-10 col-lg-9 col-xl-9" *ngIf="papers?.length == 0">
+            <h4 class="text-center text-danger">
+              No Records Found
+            </h4>
+          </div>
+          <div class="col-9 col-sm-9 col-md-10 col-lg-9 col-xl-9">
+            <ul>
+              <li *ngFor="let file of papers">
+                <div>
+                  <div mat-line>{{ file.course_name }} (Semester: {{ file.semester }})</div>
+                  <div mat-line> {{ file?.dep_name }} </div>
+                </div>
+                <a [href]="file?.question_url" target="_blank" rel="noopener noreferrer">
+                  <span class="material-symbols-outlined">
+                    visibility
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
