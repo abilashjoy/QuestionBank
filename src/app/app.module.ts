@@ -7,7 +7,6 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminComponent } from './admin/admin.component';
-import { QuestionComponent } from './question/question.component';
 import { StudentComponent } from './student/student.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +25,6 @@ import {MatIconModule} from '@angular/material/icon';
     TeacherComponent,
     AdminLoginComponent,
     AdminComponent,
-    QuestionComponent,
     StudentComponent
   
     

@@ -44,6 +44,15 @@
               </mat-select>
             </mat-form-field>
           </div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
+              <mat-form-field appearance="outline">
+                <mat-label>Select Year</mat-label>
+                <mat-select [(value)]="dep_id" placeholder="" (selectionChange)="getCourses($event.value)">
+                  <mat-option *ngFor="let dept of departments" [value]="dept?.dep_id"> {{ dept?.dep_name }} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
           <div class="col-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
             <button (click)="getQuestions()" type="button" class="btn btn-primary btn-block submit">
               SUBMIT
@@ -68,6 +77,9 @@
                   <span class="material-symbols-outlined">
                     visibility
                   </span>
+                  <!-- <a [href]="file?.question_url" target="_blank" rel="noopener noreferrer">
+                    <mat-icon>visibility</mat-icon>
+                </a> -->
                 </a>
               </li>
             </ul>
