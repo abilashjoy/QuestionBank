@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

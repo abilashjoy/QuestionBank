@@ -18,6 +18,8 @@ export class TeacherComponent implements OnInit {
   courses: any;
 
   question_form: FormGroup;
+  years: any;
+  year!: number;
 
   constructor(
     private toastr: ToastrService,
@@ -29,11 +31,18 @@ export class TeacherComponent implements OnInit {
       course_id: new FormControl('', Validators.required),
       semester: new FormControl('', Validators.required),
       file: new FormControl('', Validators.required),
+      year_id: new FormControl('', Validators.required)
     });
   }
 
   ngOnInit(): void {
     this.getDepartments();
+    this.years = [];
+
+    this.auth_service.getAllYears().subscribe((res: any) => {
+      console.log(res);
+      this.years = res.data;
+    });
   }
   onAlert(): void {
     alert('Question Paper uploaded successfully');
@@ -110,6 +119,7 @@ export class TeacherComponent implements OnInit {
       form_data.append('course_id', this.question_form.get('course_id')?.value);
       form_data.append('semester', this.question_form.get('semester')?.value);
       form_data.append('question', this.question_form.get('file')?.value);
+      form_data.append('year_id', this.question_form.get('year_id')?.value);
 
       this.auth_service.addPaper(form_data).subscribe((res: any) => {
         console.log(res);

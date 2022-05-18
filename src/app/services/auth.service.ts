@@ -80,4 +80,13 @@ export class AuthService {
   getStudentsPapers(data: any) {
     return this.http.post<any>(this.root_url + 'get-student-question-paper', data);
   }
+
+  /**
+   * to get all years
+   * 
+   * @returns 
+   */
+  getAllYears() {
+    return this.http.get<any>(this.root_url + 'all-year');
+  }
 }

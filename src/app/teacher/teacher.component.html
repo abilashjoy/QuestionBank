@@ -45,8 +45,8 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 ">
               <mat-form-field appearance="outline">
                 <mat-label>Select Year</mat-label>
-                <mat-select formControlName="dep_id" placeholder="" (selectionChange)="getCourses($event.value)">
-                  <mat-option *ngFor="let dept of departments" [value]="dept?.dep_id"> {{ dept?.dep_name }} </mat-option>
+                <mat-select formControlName="year_id" placeholder="">
+                  <mat-option *ngFor="let year of years" [value]="year?.id">{{year?.year}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>

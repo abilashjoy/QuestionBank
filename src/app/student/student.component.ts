@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -16,14 +17,23 @@ export class StudentComponent implements OnInit {
   semester!: number;
   course_id!: number;
   papers: any;
+  years!: any;
+  year!: number;
 
   ngOnInit(): void {
     this.papers = [];
     this.getDepartments();
+    this.years = [];
+
+    this.auth_service.getAllYears().subscribe((res: any) => {
+      console.log(res);
+      this.years = res.data;
+    });
   }
 
   constructor(
-    private auth_service: AuthService
+    private auth_service: AuthService,
+    private date_pipe: DatePipe
   ) { }
 
   getDepartments() {
@@ -65,7 +75,8 @@ export class StudentComponent implements OnInit {
     let data = {
       dep_id: this.dep_id,
       course_id: this.course_id,
-      semester: this.semester
+      semester: this.semester,
+      year_id: this.year
     };
     this.auth_service.getStudentsPapers(data).subscribe((res: any) => {
       console.log(res);
